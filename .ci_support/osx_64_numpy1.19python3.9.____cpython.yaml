@@ -18,6 +18,8 @@ libgdal:
 - '3.1'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+numpy:
+- '1.19'
 pin_run_as_build:
   libgdal:
     max_pin: x.x
@@ -25,7 +27,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.9.* *_cpython
 python_impl:
 - cpython
 target_platform:
@@ -34,4 +36,5 @@ zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
 - - python
+  - numpy
   - python_impl
