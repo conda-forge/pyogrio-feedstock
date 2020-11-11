@@ -22,7 +22,7 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.16
+    - numpy
     - libgdal
     - geos
   run:
