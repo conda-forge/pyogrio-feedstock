@@ -1,5 +1,5 @@
 {% set name = "pyogrio" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/brendan-ward/pyogrio/releases/download/v{{ version }}/pyogrio-{{ version }}.tar.gz
-  sha256: b7ca664fe4d25c59a4b9a4f42544fbadf903f6d0b1c65e0685441a76101e8944
+  sha256: e173e6300afca745f6db2251e4c20dceb748af27978c038eb2f83166037c1f1e
 
 build:
-  number: 5
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: True  # [py<38 or python_impl == 'pypy']
 
