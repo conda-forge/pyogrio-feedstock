@@ -15,7 +15,7 @@ cxx_compiler_version:
 geos:
 - 3.9.1
 libgdal:
-- '3.2'
+- '3.3'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
