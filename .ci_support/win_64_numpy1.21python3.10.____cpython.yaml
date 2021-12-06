@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 geos:
-- 3.10.0
+- 3.10.1
 libgdal:
 - '3.4'
 numpy:
