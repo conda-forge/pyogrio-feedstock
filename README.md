@@ -1,7 +1,7 @@
 About pyogrio
 =============
 
-Home: https://github.com/brendan-ward/pyogrio/
+Home: https://github.com/geopandas/pyogrio/
 
 Package license: MIT
 
@@ -9,9 +9,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyogrio-feedsto
 
 Summary: Vectorized vector I/O using GDAL
 
-Development: https://github.com/brendan-ward/pyogrio
+Development: https://github.com/geopandas/pyogrio
 
-Documentation: https://github.com/brendan-ward/pyogrio
+Documentation: https://pyogrio.readthedocs.io
 
 Provide faster I/O using GDAL OGR to read / write vector geospatial files.
 Intended for use with libraries that consume WKB for their internal
@@ -23,7 +23,6 @@ Current build status
 
 
 <table>
-    
   <tr>
     <td>Azure</td>
     <td>
