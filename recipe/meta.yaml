@@ -10,7 +10,7 @@ source:
   sha256: e173e6300afca745f6db2251e4c20dceb748af27978c038eb2f83166037c1f1e
 
 build:
-  number: 7
+  number: 8
   skip: True  # [py<38 or python_impl == 'pypy']
 
 requirements:
@@ -40,7 +40,7 @@ test:
     - pyogrio
 
 about:
-  home: https://github.com/brendan-ward/pyogrio/
+  home: https://github.com/geopandas/pyogrio/
   license: MIT
   license_family: MIT
   license_file: LICENSE
@@ -49,8 +49,8 @@ about:
     Provide faster I/O using GDAL OGR to read / write vector geospatial files.
     Intended for use with libraries that consume WKB for their internal
     constructs, such as pygeos.
-  doc_url: https://github.com/brendan-ward/pyogrio
-  dev_url: https://github.com/brendan-ward/pyogrio
+  doc_url: https://pyogrio.readthedocs.io/
+  dev_url: https://github.com/geopandas/pyogrio
 
 extra:
   recipe-maintainers:
