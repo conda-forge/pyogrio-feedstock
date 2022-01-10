@@ -11,7 +11,7 @@ Summary: Vectorized vector I/O using GDAL
 
 Development: https://github.com/geopandas/pyogrio
 
-Documentation: https://pyogrio.readthedocs.io
+Documentation: https://pyogrio.readthedocs.io/
 
 Provide faster I/O using GDAL OGR to read / write vector geospatial files.
 Intended for use with libraries that consume WKB for their internal
@@ -23,6 +23,7 @@ Current build status
 
 
 <table>
+    
   <tr>
     <td>Azure</td>
     <td>
