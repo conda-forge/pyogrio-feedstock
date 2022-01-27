@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/geopandas/pyogrio/releases/download/v{{ version }}/pyogrio-{{ version }}.tar.gz
+  url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
   sha256: bef3aab35a02fde62ab2d3da64209920abc38e7cf94816ad26f3b19deb28931d
 
 build:
