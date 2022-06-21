@@ -1,5 +1,5 @@
 {% set name = "pyogrio" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: bef3aab35a02fde62ab2d3da64209920abc38e7cf94816ad26f3b19deb28931d
+  sha256: dc6fb952919d57c36f755c98ec54312218ec5123d689f1a2e175ffd2a5643683
 
 build:
-  number: 2
+  number: 0
   skip: True  # [py<38 or python_impl == 'pypy']
 
 requirements:
@@ -27,13 +27,11 @@ requirements:
     - cython
     - numpy
     - libgdal
-    - geos
   run:
     - python
     - gdal
     - {{ pin_compatible('numpy') }}
     - pygeos
-    - pyproj
 
 test:
   imports:
