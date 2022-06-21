@@ -1,23 +1,15 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
 c_compiler:
-- clang
-c_compiler_version:
-- '13'
+- vs2017
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- clangxx
-cxx_compiler_version:
-- '13'
+- vs2017
 geos:
 - 3.10.3
 libgdal:
 - '3.5'
-macos_machine:
-- arm64-apple-darwin20.0.0
 numpy:
 - '1.19'
 pin_run_as_build:
@@ -31,10 +23,4 @@ python:
 python_impl:
 - cpython
 target_platform:
-- osx-arm64
-zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
-- - python
-  - numpy
-  - python_impl
+- win-64

@@ -1,17 +1,25 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 c_compiler:
-- vs2017
+- clang
+c_compiler_version:
+- '13'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2017
+- clangxx
+cxx_compiler_version:
+- '13'
 geos:
 - 3.10.3
 libgdal:
 - '3.5'
+macos_machine:
+- x86_64-apple-darwin13.4.0
 numpy:
-- '1.21'
+- '1.19'
 pin_run_as_build:
   libgdal:
     max_pin: x.x
@@ -19,12 +27,8 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.9.* *_cpython
 python_impl:
 - cpython
 target_platform:
-- win-64
-zip_keys:
-- - python
-  - numpy
-  - python_impl
+- osx-64
