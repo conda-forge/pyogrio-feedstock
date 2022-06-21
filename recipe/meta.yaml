@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 85480e687872a3e3b11b3e2147e8aa779e28f165c60e01b2102971c895b84b82
+  sha256: dc6fb952919d57c36f755c98ec54312218ec5123d689f1a2e175ffd2a5643683
 
 build:
   number: 0
