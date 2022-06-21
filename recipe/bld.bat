@@ -8,5 +8,5 @@ echo "set GDAL_VERSION=%GDAL_VERSION%"
 set GDAL_INCLUDE_PATH=%LIBRARY_INC%
 set GDAL_LIBRARY_PATH=%LIBRARY_LIB%
 
-"%PYTHON%" -m pip install --no-use-pep517 -vv . ^
+%PYTHON% -m pip install --no-deps --ignore-installed -v .
 if errorlevel 1 exit 1
