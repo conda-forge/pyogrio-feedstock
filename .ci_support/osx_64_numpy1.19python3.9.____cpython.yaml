@@ -12,8 +12,6 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '13'
-geos:
-- 3.11.0
 libgdal:
 - '3.5'
 macos_machine:
