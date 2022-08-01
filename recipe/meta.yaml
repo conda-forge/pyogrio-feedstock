@@ -27,13 +27,14 @@ requirements:
     - cython
     - numpy
     - libgdal
-    - geos
+    # pygeos is lagging behind on geos support
+    # we need it here to make sure the solver gets a compatible goes+gdal match
+    - pygeos
   run:
     - python
     - gdal
     - {{ pin_compatible('numpy') }}
     - pygeos
-    - geos
 
 test:
   imports:
