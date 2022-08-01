@@ -1,5 +1,5 @@
 {% set name = "pyogrio" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: dc6fb952919d57c36f755c98ec54312218ec5123d689f1a2e175ffd2a5643683
+  sha256: 531b9f8b700cd218ca4581e8c9fc86102480c20168f778682dfe60fb9c61f1ab
 
 build:
   number: 0
-  skip: True  # [py<38 or python_impl == 'pypy']
+  skip: true  # [py<38 or python_impl == 'pypy']
 
 requirements:
   build:
@@ -27,6 +27,9 @@ requirements:
     - cython
     - numpy
     - libgdal
+    # pygeos is lagging behind on geos support
+    # we need it here to make sure the solver gets a compatible goes+gdal match
+    - pygeos
   run:
     - python
     - gdal
@@ -42,7 +45,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Vectorized vector I/O using GDAL'
+  summary: Vectorized vector I/O using GDAL
   description: |
     Provide faster I/O using GDAL OGR to read / write vector geospatial files.
     Intended for use with libraries that consume WKB for their internal
