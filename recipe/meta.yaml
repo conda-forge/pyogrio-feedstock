@@ -1,5 +1,5 @@
 {% set name = "pyogrio" %}
-{% set version = "0.4.1" %}
+{% set version = "0.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 531b9f8b700cd218ca4581e8c9fc86102480c20168f778682dfe60fb9c61f1ab
+  sha256: fa4b4b4bc9ab36f3981b5a0aa9fce4fc81a4f9eafc2a8612417e86b7ff5029c2
 
 build:
   number: 0
