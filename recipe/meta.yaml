@@ -1,5 +1,5 @@
 {% set name = "pyogrio" %}
-{% set version = "0.4.2" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 26464f8c7479f5478ae391911f689b29c63f00abf735b2b85915b2e4cd9b8c38
+  sha256: 41a26fdaac1d151bb3802961610e7c198766244c32724ce3e4c1c613229e16dc
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<38 or python_impl == 'pypy']
 
 requirements:
@@ -27,14 +27,10 @@ requirements:
     - cython
     - numpy
     - libgdal
-    # pygeos is lagging behind on geos support
-    # we need it here to make sure the solver gets a compatible goes+gdal match
-    - pygeos
   run:
     - python
     - gdal
     - {{ pin_compatible('numpy') }}
-    - pygeos
 
 test:
   imports:
