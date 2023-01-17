@@ -31,7 +31,6 @@ requirements:
     - python
     - gdal
     - {{ pin_compatible('numpy') }}
-    - pygeos
 
 test:
   imports:
