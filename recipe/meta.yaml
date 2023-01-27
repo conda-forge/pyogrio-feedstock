@@ -28,7 +28,7 @@ requirements:
     - numpy
     - libgdal
     - versioneer
-    - tomli # [py<311]
+    - tomli  # [py<311]
   run:
     - python
     - gdal
