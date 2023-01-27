@@ -19,7 +19,6 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
-    - versioneer
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
@@ -28,6 +27,7 @@ requirements:
     - cython
     - numpy
     - libgdal
+    - versioneer
   run:
     - python
     - gdal
