@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/geopandas/pyogrio/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: c35c6d3cdd3598f7895673c4185246bf4a5f4c52b4ff4660271a6c5a2d964cd6
+  url: https://github.com/geopandas/pyogrio/releases/download/v{{ version }}/pyogrio-{{ version }}.tar.gz
+  sha256: 4b8f0666701766a7ac3774b6f1c5f8dd5d72f1ed18cb319790835d8f8d073ce5
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<38 or python_impl == 'pypy']
 
 requirements:
