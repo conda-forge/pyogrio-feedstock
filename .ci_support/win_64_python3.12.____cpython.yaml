@@ -10,8 +10,6 @@ cxx_compiler:
 - vs2019
 libgdal:
 - '3.8'
-numpy:
-- '1.26'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -24,5 +22,4 @@ target_platform:
 - win-64
 zip_keys:
 - - python
-  - numpy
   - python_impl
