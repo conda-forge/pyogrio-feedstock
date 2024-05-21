@@ -10,7 +10,7 @@ source:
   sha256: 459ec590c3c1cda451f3f73c88a678c32b127de783bf54c41ea6ad708969f020
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<38 or python_impl == 'pypy' or ppc64le]
 
 requirements:
