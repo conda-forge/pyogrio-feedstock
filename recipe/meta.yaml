@@ -26,12 +26,12 @@ requirements:
     - pip
     - setuptools
     - cython
-    - libgdal
+    - libgdal-core
     - versioneer
     - tomli  # [py<311]
   run:
     - python
-    - gdal
+    - libgdal-core
     - packaging
     - numpy
 
