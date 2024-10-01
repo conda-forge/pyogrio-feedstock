@@ -1,5 +1,5 @@
 {% set name = "pyogrio" %}
-{% set version = "0.9.0" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/geopandas/pyogrio/releases/download/v{{ version }}/pyogrio-{{ version }}.tar.gz
-  sha256: 6a6fa2e8cf95b3d4a7c0fac48bce6e5037579e28d3eb33b53349d6e11f15e5a8
+  sha256: ec051cb568324de878828fae96379b71858933413e185148acb6c162851ab23c
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<38 or python_impl == 'pypy']
 
 requirements:
@@ -26,12 +26,12 @@ requirements:
     - pip
     - setuptools
     - cython
-    - libgdal
+    - libgdal-core
     - versioneer
     - tomli  # [py<311]
   run:
     - python
-    - gdal
+    - libgdal-core
     - packaging
     - numpy
 
