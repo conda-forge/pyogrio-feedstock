@@ -81,11 +81,6 @@ tests:
   - python:
       imports:
         - pyogrio
-        - pyogrio._err
-        - pyogrio._geometry
-        - pyogrio._io
-        - pyogrio._ogr
-        - pyogrio._vsi
       pip_check: false
       python_version:
         - if: is_abi3
