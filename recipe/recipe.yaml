@@ -1,0 +1,125 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: "0.13.0"
+  cython_min: "3.1"
+  # to be update once python315 migration is "finished"
+  python_check_max: "3.14"
+  # for abi audit
+  abi3_ext: ${{ "abi3.so" if unix else "pyd" }}
+  abi3_bin_names: _err,_geometry,_io,_ogr,_vsi
+  abi3_bins: ${{ (abi3_bin_names ~ ",") | replace(",", "." ~ abi3_ext ~ " ") }}
+
+package:
+  name: pyogrio
+  version: ${{ version }}
+
+source:
+  url: https://github.com/geopandas/pyogrio/releases/download/v${{ version }}/pyogrio-${{ version }}.tar.gz
+  sha256: 9614f27a1891113f80653e0b76b4233ea1fb3beeb1ac46d118ab22e1670f8f13
+
+build:
+  number: 1
+  skip: is_abi3 and not is_python_min
+  python:
+    version_independent: ${{ is_abi3 }}
+  script:
+    env:
+      GDAL_INCLUDE_PATH: ${{ "${PREFIX}/include" if unix else "%LIBRARY_INC%" }}
+      GDAL_LIBRARY_PATH: ${{ "${PREFIX}/lib" if unix else "%LIBRARY_LIB%" }}
+      GDAL_VERSION: ${{ libgdal_core }}
+      PYOGRIO_LIMITED_API: ${{ "1" if is_abi3 else "0" }}
+    content:
+      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --check-build-dependencies
+
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+    - if: build_platform != target_platform
+      then:
+        - cross-python_${{ target_platform }}
+        - cython >=${{ cython_min }}
+        - if: is_abi3
+          then:
+            - python ${{ python_min }}.*
+            - python-abi3
+          else:
+            - python
+  host:
+    - cython >=${{ cython_min }}
+    - libgdal-core
+    - pip
+    - python
+    - setuptools >=77
+    - versioneer ==0.28
+    - if: is_abi3
+      then:
+        - python ${{ python_min }}.*
+        - python-abi3
+  run:
+    - certifi
+    - libgdal-core
+    - numpy
+    - packaging
+    - python
+    - if: is_abi3
+      then:
+        - python >=${{ python_min }}
+        - python-abi3
+
+tests:
+  - package_contents:
+      strict: true
+      files:
+        - etc/conda/test-files/pyogrio/**
+      site_packages:
+        - pyogrio/**
+        - pyogrio-${{ version }}.dist-info/**
+  - python:
+      imports:
+        - pyogrio
+      pip_check: false
+      python_version:
+        - if: is_abi3
+          then:
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
+  - files:
+      source:
+        - setup.cfg
+    requirements:
+      run:
+        - pytest
+        - if: is_abi3
+          then:
+            - python ${{ python_min }}.*
+            - abi3audit
+    script:
+      # comment out testpaths, relying on --pyargs below
+      - python -c "p = __import__('pathlib').Path('setup.cfg'); p.write_bytes(p.read_bytes().replace(b'testpaths', b'# testpaths'))"
+      - pytest -vv --tb=long --color=yes --pyargs pyogrio -m "not network"
+      - if: is_abi3
+        then:
+          - cd "${{ "${SP_DIR}" if unix else "%SP_DIR%" }}/pyogrio"
+          - abi3audit -s -v --assume-minimum-abi3 ${{ python_min }} ${{ abi3_bins }}
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: Vectorized spatial vector file format I/O using GDAL/OGR
+  description: |
+    Pyogrio provides fast, bulk-oriented read and write access to GDAL/OGR
+    vector data sources, such as ESRI Shapefile, GeoPackage, GeoJSON,
+    and several others.
+  homepage: https://pypi.org/project/pyogrio
+  repository: https://github.com/geopandas/pyogrio
+  documentation: https://pyogrio.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - brendan-ward
+    - jorisvandenbossche
+    - martinfleis
